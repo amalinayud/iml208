@@ -1,8 +1,7 @@
 import tkinter 
 from tkinter import ttk
 from tkinter import messagebox
-from tkinter import  simpledialog # Import simpledialog module 
-import sqlite3
+
 
 def submit_registration():
     accepted = accept_var.get()
@@ -40,20 +39,6 @@ def submit_registration():
     else:
         tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms")
 
-def retrieve_registration():
-    # Implement the retrieval logic based on the search_entry content
-    # Display the retrieved information in the retrieved_info_label
-    pass
-
-def update_registration():
-    # Implement the update logic here
-    # You might open a new window with entry widgets pre-filled with existing data
-    pass
-
-def delete_registration():
-    # Implement the delete logic here
-    # You might want to prompt the user for confirmation before deleting
-    pass
 
 window = tkinter.Tk()
 window.title("Sport Equipment Registration Form")
@@ -138,46 +123,6 @@ accept_var = tkinter.StringVar(value= "Not Accepted")
 terms_check = tkinter.Checkbutton(terms_frame, text= "I accept the terms and conditions."
                                   , variable=accept_var, onvalue="Accepted", offvalue="Not Accepted")
 terms_check.grid(row= 0, column= 0)
-
-# Retrieve Frame
-retrieve_frame = tkinter.LabelFrame(frame, text="Retrieve Registration")
-retrieve_frame.grid(row=3, column=0, padx=20, pady=20)
-
-# Search Entry
-search_entry_label = tkinter.Label(retrieve_frame, text="Search by Name:")
-search_entry_label.grid(row=0, column=0)
-search_entry = tkinter.Entry(retrieve_frame)
-search_entry.grid(row=0, column=1)
-
-# Retrieve Frame
-retrieve_frame = tkinter.LabelFrame(frame, text="Retrieve Registration")
-retrieve_frame.grid(row=3, column=0, padx=20, pady=20)
-
-# Search Entry
-search_entry_label = tkinter.Label(retrieve_frame, text="Search by Name:")
-search_entry_label.grid(row=0, column=0)
-search_entry = tkinter.Entry(retrieve_frame)
-search_entry.grid(row=0, column=1)
-
-# Retrieve Button
-retrieve_button = tkinter.Button(retrieve_frame, text="Retrieve", command=retrieve_registration)
-retrieve_button.grid(row=0, column=2, columnspan=3,padx=10)
-
-# Display Retrieved Information
-retrieved_info_label = tkinter.Label(retrieve_frame, text="Retrieved Information:")
-retrieved_info_label.grid(row=1, column=0, columnspan=3)
-
-# Button Frame
-button_frame = tkinter.Frame(retrieve_frame)
-button_frame.grid(row=2, column=0, columnspan=3)
-
-# Update Button
-update_button = tkinter.Button(button_frame, text="Update", command=update_registration)
-update_button.grid(row=0, column=0, padx=10)
-
-# Delete Button
-delete_button = tkinter.Button(button_frame, text="Delete", command=delete_registration)
-delete_button.grid(row=0, column=1, padx=10)
 
 # Button
 button = tkinter.Button(frame, text="Submit registration", command=submit_registration)
